@@ -160,13 +160,13 @@ document.getElementById('findLocation').addEventListener('click', function () {
 });
 
 function showNearestStation(position) {
-    console.log("position is", position)
     const myLat = position.coords.latitude;
     const myLong = position.coords.longitude;
-    let nearestDistance = Number.MAX_VALUE;
-    let nearestStation = null;
+    let nearestStation = stations[0];
+    let nearestDistance = calculateDistance(myLat, myLong, nearestStation.latitude, nearestStation.longitude);
 
-    for (const station of stations) {
+    for (let i = 1; i < stations.length; i++) {
+        const station = stations[i];
         const distance = calculateDistance(myLat, myLong, station.latitude, station.longitude);
         if (distance < nearestDistance) {
             nearestDistance = distance;
@@ -174,6 +174,10 @@ function showNearestStation(position) {
         }
     }
 
+    displayResult(nearestStation);
+}
+
+function displayResult(nearestStation) {
     const currentTime = new Date().toTimeString().split(' ')[0];
     const nextDeparturesToHI = getNext3Departures(nearestStation.schedules_to_hi, currentTime);
     const nextDeparturesToLebakBulus = getNext3Departures(nearestStation.schedules_to_lebak_bulus, currentTime);
@@ -184,3 +188,4 @@ function showNearestStation(position) {
         <p>Next 3 Departures to Lebak Bulus Station: ${nextDeparturesToLebakBulus}</p>
     `;
 }
+
