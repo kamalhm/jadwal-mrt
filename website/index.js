@@ -183,9 +183,9 @@ function displayResult(nearestStation) {
     const nextDeparturesToLebakBulus = getNext3Departures(nearestStation.schedules_to_lebak_bulus, currentTime);
 
     document.getElementById('result').innerHTML = `
-        <p>Nearest Station: ${nearestStation.station}</p>
-        <p>Next 3 Departures to HI Station: ${nextDeparturesToHI}</p>
-        <p>Next 3 Departures to Lebak Bulus Station: ${nextDeparturesToLebakBulus}</p>
+        <p>Station: ${nearestStation.station}</p>
+        <p>HI Station: ${nextDeparturesToHI}</p>
+        <p>Lebak Bulus Station: ${nextDeparturesToLebakBulus}</p>
     `;
 }
 
