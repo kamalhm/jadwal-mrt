@@ -25,5 +25,5 @@ curl 'https://jakartamrt.co.id/id/val/stasiuns'
 
 - [ ] (P0) Check for public holiday on the schedule
     - Currently not sure when does MRT Jakarta use the holiday schedule. Confirming schedule while on public holiday
-      Google Maps, it's showing regular schedule. Will need manual checking later.
+      on Google Maps, it's still showing regular schedule. Will need manual checking later.
 - [ ] (P1) Make it look nice
